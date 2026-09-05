@@ -17,4 +17,4 @@ jobs:
 
     steps:
       - name: Show Project ID
-        run: echo "Test Project = ${{ vars.PROJECT_ID }}"
+        run: echo "Test Project = ${{ vars.PROJECT_ID }}" 
