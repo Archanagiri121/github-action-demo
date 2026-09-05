@@ -1,0 +1,31 @@
+name: User Input Demo
+
+on:
+  workflow_dispatch:
+    inputs:
+
+      name:
+        description: "Enter your name"
+        required: true
+        type: string
+
+      environment:
+        description: "Select environment"
+        required: true
+        type: choice
+        options:
+          - Development
+          - Testing
+          - Production
+
+jobs:
+
+  demo:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Show User Inputs
+        run: |
+          echo "Hello ${{ inputs.name }}"
+          echo "Selected environment: ${{ inputs.environment }}"

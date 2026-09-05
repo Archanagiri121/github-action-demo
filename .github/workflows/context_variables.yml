@@ -1,1 +1,23 @@
+name: Context Variables Demo
 
+on:
+  workflow_dispatch:
+
+jobs:
+
+  demo:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Show Repository
+        run: echo "Repository: ${{ github.repository }}"
+
+      - name: Show Workflow
+        run: echo "Workflow: ${{ github.workflow }}"
+
+      - name: Show Actor
+        run: echo "Triggered by: ${{ github.actor }}"
+
+      - name: Show Branch
+        run: echo "Branch/Ref: ${{ github.ref }}"

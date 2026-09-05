@@ -1,1 +1,20 @@
+name: Configuration Variables Demo
 
+on:
+  workflow_dispatch:
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Show Project ID
+        run: echo "Build Project = ${{ vars.PROJECT_ID }}"
+
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Show Project ID
+        run: echo "Test Project = ${{ vars.PROJECT_ID }}"

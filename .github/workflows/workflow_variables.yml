@@ -1,0 +1,49 @@
+name: Workflow Variables Demo
+
+on:
+  workflow_dispatch:
+
+# Workflow-level variable
+env:
+  CLOUD: Google Cloud
+
+jobs:
+
+  # -------------------------
+  # BUILD JOB
+  # -------------------------
+  build:
+    runs-on: ubuntu-latest
+
+    # Job-level variable
+    env:
+      CLOUD: AWS
+
+    steps:
+
+      # Inherits CLOUD from job level
+      - name: Step 1
+        run: echo "Step 1 = $CLOUD"
+
+      # Step-level variable overrides job-level
+      - name: Step 2
+        env:
+          CLOUD: Azure
+        run: echo "Step 2 = $CLOUD"
+
+
+  # -------------------------
+  # TEST JOB
+  # -------------------------
+  test:
+    runs-on: ubuntu-latest
+
+    # Job-level variable
+    env:
+      CLOUD: Google Cloud
+
+    steps:
+
+      # Uses job-level value
+      - name: Test Step
+        run: echo "Test = $CLOUD"
